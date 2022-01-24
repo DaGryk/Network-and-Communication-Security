@@ -18,10 +18,14 @@ void *ddos(void *arg)
 	return NULL;
 }
 
-int main()
+int main(int argc, char*argv[])
 {
-	unsigned int l = 10;
-	int i;
+	if (argc<2)
+	{
+		printf("Please input number of threads.\n");
+		return 1;
+	}
+	int l = atoi(argv[1]),i;
 	pthread_t *p_thread;
 	p_thread = (pthread_t *)malloc(sizeof(pthread_t) * l);
 	for (i=0; i<l; i++)
